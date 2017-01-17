@@ -1,3 +1,5 @@
+![Vue.js + PHP Native](https://ianmustafa.github.io/vue-php-native/cover.jpg)
+
 # Vue.js dengan Back-end PHP Native
 Belajar hal baru selalu asyik. Disini, saya mencoba [Vue.js](https://vuejs.org)
 untuk pertama kalinya. Dipadukan dengan [Vue Router](https://router.vuejs.org/en)
