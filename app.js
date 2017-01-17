@@ -1,5 +1,5 @@
 // Ubah URL dibawah sesuai endpoint project Anda
-axios.defaults.baseURL = 'http://demo.ianmustafa.com/vue-php-native'
+axios.defaults.baseURL = 'https://demo.ianmustafa.com/vue-php-native'
 
 // Siapkan route components disini
 // - Route: LihatUser
