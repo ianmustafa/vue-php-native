@@ -22,12 +22,15 @@
 
       <p>Jelas, ini bukanlah proyek yang <em>perfect</em>. Saya sendiri menemui banya kendala, termasuk memahami konsep dan mencari cara agar <em>flow</em> aplikasi bisa sesuai dengan keinginan saya. Proyek ini saya buat sesederhana mungkin agar pemula seperti saya bisa lebih mudah memahami konsep dasarnya, dan nantinya bisa dipakai sebagai <em>boilerplate</em> untuk mengembangkan aplikasi yang lebih kompleks. 👍</p>
 
-
+      <!-- Demo! -->
       <h3 id="demo">Demo</h3>
+      <!-- Vue akan memakai div#app berikut untuk me-render aplikasi yang kita buat -->
       <div id="app">
+        <!-- <router-view/> berikut dipakai oleh Vue Router untuk me-render router yang ditampilkan -->
         <router-view></router-view>
       </div>
     </div><!-- /.container -->
+
 
     <!--
       Vue.js Template: lihat-user
@@ -67,6 +70,7 @@
       </section>
     </template><!-- /template#lihat-user -->
 
+
     <!-- Vue.js Template: tambah-user -->
     <template id="tambah-user">
       <section>
@@ -94,7 +98,8 @@
       </section>
     </template><!-- /template#tambah-user -->
 
-    <!-- Vue.js Template: ubah-user -->
+
+    <!-- Vue.js Template: ubah-user — dari sini Anda pasti sudah paham -->
     <template id="ubah-user">
       <section>
         <h4>Ubah User</h4>
@@ -116,6 +121,7 @@
         </form>
       </section>
     </template><!-- /template#ubah-user -->
+
 
     <!-- Saya pakai assets dari CDN supaya sederhana; saya belum siap untk pakai Webpack 😂 -->
     <script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript"></script>
