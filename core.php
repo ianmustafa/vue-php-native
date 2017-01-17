@@ -37,7 +37,8 @@ function response($data, $status_code = 200) {
     // RESTful: selalu berikan tipe konten!
     header('Content-Type: application/json');
 
-    echo json_encode($data);
+    // Jika datanya null, jangan tampilkan apapun
+    echo $data === null ? null : json_encode($data);
 }
 
 // Parse input HTTP request sesuai dengan atribut yang diinginkan.

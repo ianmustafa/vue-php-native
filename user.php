@@ -60,6 +60,12 @@ switch ($_SERVER['REQUEST_METHOD']) {
         response(['message' => 'Data user berhasil dihapus.'], 200);
         break;
 
+    case 'OPTIONS':
+        // Metode HTTP OPTIONS biasa dipakai di cross-site request dan RESTful.
+        // Untuk sementara, berikan respon kosong (204 No Content)
+        response(null, 204);
+        break;
+
     default:
         response(['message' => 'Metode HTTP tidak bisa diterima.'], 405);
 }
