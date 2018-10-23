@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="Ian Mustafa">
     <meta name="description" content="Belajar hal baru selalu asyik. Disini, saya mencoba Vue.js untuk pertama kalinya. Dipadukan dengan Vue Router dan Axios, saya harap contoh sederhana ini bisa memberi gambaran bagi kita, aplikasi interaktif yang powerful nggak harus ribet. 😊">
 
@@ -25,14 +25,15 @@
   </head>
 
   <body>
-    <div class="container py-5">
-      <div class="page-header">
+    <div class="container py-4">
+      <div class="page-header mb-4 border-bottom">
         <h1>
           <img src="vue.png" alt="Vue.js Logo">
           Vue.js dengan Back-end PHP Native
-          <small class="text-muted">Oleh <a href="https://facebook.com/iianmustafa">Ian Mustafa</a></small>
+          <small class="h3 text-muted">Oleh <a href="https://facebook.com/iianmustafa">Ian Mustafa</a></small>
         </h1>
       </div>
+
       <p class="lead">Belajar hal baru selalu asyik. Disini, saya mencoba <a href="https://vuejs.org" target="_blank">Vue.js</a> untuk pertama kalinya. Dipadukan dengan <a href="https://router.vuejs.org/en" target="_blank">Vue Router</a> dan <a href="https://github.com/mzabriskie/axios" target="_blank">Axios</a>, saya harap contoh sederhana ini bisa memberi gambaran bagi kita, aplikasi interaktif yang <em>powerful</em> nggak harus ribet. 😊</p>
 
       <p>Jelas, ini bukanlah proyek yang <em>perfect</em>. Saya sendiri menemui banya kendala, termasuk memahami konsep dan mencari cara agar <em>flow</em> aplikasi bisa sesuai dengan keinginan saya. Proyek ini saya buat sesederhana mungkin agar pemula seperti saya bisa lebih mudah memahami konsep dasarnya, dan nantinya bisa dipakai sebagai <em>boilerplate</em> untuk mengembangkan aplikasi yang lebih kompleks. 👍</p>
@@ -65,29 +66,33 @@
           Tambah user baru
         </router-link>
 
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Nama</th>
-              <th>Email</th>
-              <th>Alamat</th>
-              <th><span class="sr-only">Aksi</span></th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- $parent disini dipakai karena kita perlu mengakses property milik parent component (Vue instance itu sendiri) dalam child component (route component ini). Di bagian yang lain juga sama -->
-            <tr v-for="user in $parent.users">
-              <td>{{ user.nama }}</td>
-              <td>{{ user.email }}</td>
-              <td>{{ user.alamat }}</td>
-              <td>
-                <router-link :to="{name: 'ubah-user', params: {id_user: user.id}}" class="btn btn-xs btn-success btn-sm px-1 py-0 text-small">Ubah</router-link>
-                <!-- @click dipakai untuk mendengarkan event click dari <button/>, dengan action ke method hapusUser() di Vue -->
-                <button type="button" @click="$parent.hapusUser(user.id)" class="btn btn-xs btn-danger btn-sm px-1 py-0 text-small">Hapus</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nama</th>
+                <th>Email</th>
+                <th>Alamat</th>
+                <th><span class="sr-only">Aksi</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- $parent disini dipakai karena kita perlu mengakses property milik parent component (Vue instance itu sendiri) dalam child component (route component ini). Di bagian yang lain juga sama -->
+              <tr v-for="(user, i) in $parent.users" :key="'user-' + user.id">
+                <td>{{ ++i }}</td>
+                <td>{{ user.nama }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.alamat }}</td>
+                <td>
+                  <router-link :to="{name: 'ubah-user', params: {id_user: user.id}}" class="btn btn-xs btn-success btn-sm px-1 py-0 text-small">Ubah</router-link>
+                  <!-- @click dipakai untuk mendengarkan event click dari <button/>, dengan action ke method hapusUser() di Vue -->
+                  <button type="button" @click="$parent.hapusUser(user.id)" class="btn btn-xs btn-danger btn-sm px-1 py-0 text-small">Hapus</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </section>
     </template><!-- /template#lihat-user -->
 
