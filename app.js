@@ -6,11 +6,11 @@ axios.defaults.baseURL = 'http://localhost:8000'
 const LihatUser = {
   template: '#lihat-user',
 
-  // Guard ini dipakai untuk memanggil ulang ambilDataUser() setiap kali
-  // route ini diakses, untuk memastikan data selalu diperbarui
+  // Guard beforeRouteEnter() selalu dipanggil sebelum route diakses.
+  // Kita bisa memakainya untuk me-reset nilai data user.
   beforeRouteEnter(to, from, next) {
     next(vm => {
-      vm.$parent.ambilSemuaUser()
+      vm.$root.user = { nama: '', email: '', alamat: '' }
     })
   },
 }
@@ -22,11 +22,11 @@ const TambahUser = {
 const UbahUser = {
   template: '#ubah-user',
 
-  // Guard ini dipakai untuk memanggil ambilUser() ketika route ini diakses,
+  // Kita pakai guard ini untuk memanggil ambilUser() ketika route diakses,
   // agar data user bisa terisi sesuai dengan id user yang disertakan
   beforeRouteEnter(to, from, next) {
     next(vm => {
-      vm.$parent.ambilUser(to.params.id_user)
+      vm.$root.ambilUser(to.params.id_user)
     })
   },
 }
@@ -64,10 +64,8 @@ const app = new Vue({
 
     // Ambil data user berdasarkan ID
     ambilUser(userId) {
-      // Cukup pakai looping ke users, tanpa perlu akses ke API server
-      for (var i = 0; i < this.users.length; i++) {
-        if (this.users[i].id == userId) this.user = this.users[i]
-      }
+      // Cukup pakai method find() yang tersedia untuk array
+      this.user = this.users.find(function (item) { return item.id == userId })
     },
 
     // Tambahkan user baru ke API server
@@ -76,6 +74,9 @@ const app = new Vue({
         .then(response => {
           // Set pesan sesuai respon dari API server
           this.message = response.data.message
+
+          // Tambahkan data user yang baru ke this.users
+          this.users.push(this.user)
 
           // Redirect kembali ke lihat-user
           this.$router.push({ name: 'lihat-user' })
@@ -88,6 +89,15 @@ const app = new Vue({
         .then(response => {
           // Set pesan sesuai respon dari API server
           this.message = response.data.message
+
+          // Ambil indeks dari user dengan id bersangkutan dari
+          // this.users, untuk dipakai dalam method splice()
+          // untuk menindih data user di this.users
+          var i = this.users.findIndex(function (item) { return item.id == userId })
+          // Tindih data user lama dengan data yang baru. Indeks
+          // yang diambil sebelumnya dipakai sebagai parameter
+          // pertama dalam method splice()
+          this.users.splice(i, 1, this.user)
 
           // Redirect kembali ke lihat-user
           this.$router.push({ name: 'lihat-user' })
@@ -102,15 +112,22 @@ const app = new Vue({
             // Set pesan sesuai respon dari API server
             this.message = response.data.message
 
-            // Refresh halaman lihat-user
-            this.$router.go({ name: 'lihat-user' })
+            // Ambil indeks dari user dengan id bersangkutan dari
+            // this.users, untuk dipakai dalam method splice()
+            // untuk menghapus data user dari this.users
+            var i = this.users.findIndex(function (item) { return item.id == userId })
+            // Hapus data user lama. splice() tetap digunakan,
+            // namun tanpa parameter ketiga karena
+            // tidak ada pergantian data
+            this.users.splice(i, 1)
           })
       }
     }
   },
 
-  // Hook ini akan dijalankan ketika Vue selesai dinisialisasi,
-  // bertugas memanggil ambilSemuaUser() untuk pertama kali
+  // Hook created() akan dijalankan ketika Vue selesai dinisialisasi.
+  // Kita bisa gunakan hook ini untuk memanggil
+  // ambilSemuaUser() untuk pertama kali
   created() {
     this.ambilSemuaUser()
   }
