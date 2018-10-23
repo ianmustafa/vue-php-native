@@ -1,16 +1,3 @@
-# ************************************************************
-# Sequel Pro SQL dump
-# Version 4541
-#
-# http://www.sequelpro.com/
-# https://github.com/sequelpro/sequelpro
-#
-# Host: 127.0.0.1 (MySQL 5.5.5-10.1.20-MariaDB)
-# Database: vue-php-native
-# Generation Time: 2017-01-17 05:43:26 +0000
-# ************************************************************
-
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -18,10 +5,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
-
-# Dump of table user
-# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `user`;
 
@@ -38,9 +21,9 @@ LOCK TABLES `user` WRITE;
 
 INSERT INTO `user` (`id`, `nama`, `email`, `alamat`)
 VALUES
-	(1,'Ian Mustafa','cuplizian@gmail.com','Bojonegoro'),
-	(2,'Rohman Muhamad','masromen@gmail.com','Jakarta'),
-	(3,'Fatan Nugraha','keplur@gmail.com','Surabaya');
+	(1,'Ian Mustafa','mail@ianmustafa.com','Bojonegoro'),
+	(2,'Rohman Muhamad','romen@ianmustafa.com','Jakarta'),
+	(3,'Fatan Nugraha','fatan@ianmustafa.com','Surabaya');
 
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
