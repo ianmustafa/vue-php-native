@@ -9,7 +9,8 @@ function dd($value, $export = false)
 }
 
 // Membuat RESTful response
-function response($data, $status_code = 200) {
+function response($data, $status_code = 200)
+{
     // List kode status HTTP yang sering dipakai
     $statuses = [
         200 => 'OK',
@@ -44,12 +45,13 @@ function response($data, $status_code = 200) {
 // Parse input HTTP request sesuai dengan atribut yang diinginkan.
 // Dengan cara ini, input dari HTTP request dengan method
 // selain GET dan POST tetap bisa diambil
-function parse_input($attributes) {
+function parse_input($attributes)
+{
     $input = json_decode(file_get_contents('php://input'), true);
 
     // Filter data yang masuk untuk memastikan tidak ada atribut
     // ilegal yang disertakan dalam request, lalu return
-    return array_filter($input, function($key) use ($attributes) {
+    return array_filter($input, function ($key) use ($attributes) {
         return in_array($key, $attributes);
     }, ARRAY_FILTER_USE_KEY);
 }
