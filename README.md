@@ -7,6 +7,7 @@ dan [Axios](https://github.com/mzabriskie/axios), saya harap contoh sederhana
 ini bisa memberi gambaran bagi kita, aplikasi interaktif yang _powerful_
 nggak harus ribet. 😊
 
+## [Demo](https://ianmustafa.github.io/vue-php-native/)
 
 ## Cara Pakai
 1. Clone repo: `$ git clone https://github.com/ianmustafa/vue-php-native.git ./lokasi/folder/proyek/vue-php-native`  
@@ -15,7 +16,6 @@ nggak harus ribet. 😊
 3. Buka `db.php` dam sesuaikan konfigurasi database dengan server lokal Anda.
 3. Buka `app.js` dan sesuaikan `axios.defaults.baseURL` ke URL proyek di server lokal Anda.
 4. Buka aplikasi via web browser dan berharaplah tidak ada error yang muncul. 😉
-
 
 ## Menemukan Bug?
 Silakan buat [_issue_ baru](https://github.com/ianmustafa/vue-php-native/issues/new). Saya harap _issue_-nya berkaitan dengan proyek saya, bukan berupa pertanyaan umum tentang Vue, Vue Resource atau Axios. Untuk hal ini silakan berkonsultasi ke [Google](https://googel.co.id).
