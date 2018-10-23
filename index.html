@@ -10,20 +10,20 @@
     <title>Vue.js dengan Back-end PHP Native</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/bootstrap@4.1/dist/css/bootstrap.min.css" rel="stylesheet">
   </head>
 
   <body>
-    <div class="container">
+    <div class="container py-5">
       <div class="page-header">
-        <h1><img src="vue.png" alt="Vue.js Logo"> Vue.js dengan Back-end PHP Native <small>Oleh <a href="https://facebook.com/iianmustafa">Ian Mustafa</a></small></h1>
+        <h1><img src="vue.png" alt="Vue.js Logo"> Vue.js dengan Back-end PHP Native <small class="text-muted">Oleh <a href="https://facebook.com/iianmustafa">Ian Mustafa</a></small></h1>
       </div>
       <p class="lead">Belajar hal baru selalu asyik. Disini, saya mencoba <a href="https://vuejs.org" target="_blank">Vue.js</a> untuk pertama kalinya. Dipadukan dengan <a href="https://router.vuejs.org/en" target="_blank">Vue Router</a> dan <a href="https://github.com/mzabriskie/axios" target="_blank">Axios</a>, saya harap contoh sederhana ini bisa memberi gambaran bagi kita, aplikasi interaktif yang <em>powerful</em> nggak harus ribet. 😊</p>
 
       <p>Jelas, ini bukanlah proyek yang <em>perfect</em>. Saya sendiri menemui banya kendala, termasuk memahami konsep dan mencari cara agar <em>flow</em> aplikasi bisa sesuai dengan keinginan saya. Proyek ini saya buat sesederhana mungkin agar pemula seperti saya bisa lebih mudah memahami konsep dasarnya, dan nantinya bisa dipakai sebagai <em>boilerplate</em> untuk mengembangkan aplikasi yang lebih kompleks. 👍</p>
 
       <!-- Demo! -->
-      <h3 id="demo">Demo</h3>
+      <h3 id="demo" class="mt-4 mb-3">Demo</h3>
       <!-- Vue akan memakai div#app berikut untuk me-render aplikasi yang kita buat -->
       <div id="app">
         <!-- <router-view/> berikut dipakai oleh Vue Router untuk me-render router yang ditampilkan -->
@@ -39,8 +39,7 @@
     <template id="lihat-user">
       <section>
         <!-- <router-link/> akan di-render menjadi <a/> lengkap dengan atribut href-nya -->
-        <router-link :to="{name: 'tambah-user'}" class="btn btn-primary">
-          <span class="glyphicon glyphicon-plus"></span>
+        <router-link :to="{name: 'tambah-user'}" class="btn btn-primary mb-3">
           Tambah user baru
         </router-link>
 
@@ -60,9 +59,9 @@
               <td>{{ user.email }}</td>
               <td>{{ user.alamat }}</td>
               <td>
-                <router-link :to="{name: 'ubah-user', params: {id_user: user.id}}" class="btn btn-xs btn-success">Ubah</router-link>
+                <router-link :to="{name: 'ubah-user', params: {id_user: user.id}}" class="btn btn-xs btn-success btn-sm px-1 py-0 text-small">Ubah</router-link>
                 <!-- @click dipakai untuk mendengarkan event click dari <button/>, dengan action ke method hapusUser() di Vue -->
-                <button type="button" @click="$parent.hapusUser(user.id)" class="btn btn-xs btn-danger">Hapus</button>
+                <button type="button" @click="$parent.hapusUser(user.id)" class="btn btn-xs btn-danger btn-sm px-1 py-0 text-small">Hapus</button>
               </td>
             </tr>
           </tbody>
@@ -123,10 +122,10 @@
     </template><!-- /template#ubah-user -->
 
 
-    <!-- Saya pakai assets dari CDN supaya sederhana; saya belum siap untk pakai Webpack 😂 -->
-    <script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript"></script>
-    <script src="https://unpkg.com/vue-router/dist/vue-router.js" type="text/javascript"></script>
-    <script src="https://unpkg.com/axios/dist/axios.js" type="text/javascript"></script>
+    <!-- Saya pakai assets dari CDN supaya sederhana. Dan juga karena dulu saya belum siap untuk pakai Webpack 😂 -->
+    <script src="https://unpkg.com/vue@2.5/dist/vue.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/vue-router@3/dist/vue-router.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/axios@0.18/dist/axios.js" type="text/javascript"></script>
 
     <!-- Aplikasi Vue yang kita buat ada disini -->
     <script src="app.js" type="text/javascript"></script>
