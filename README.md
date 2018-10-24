@@ -10,8 +10,10 @@ nggak harus ribet. 😊
 ## [Demo](https://ianmustafa.github.io/vue-php-native/)
 
 ## Cara Pakai
-1. Clone repo: `$ git clone https://github.com/ianmustafa/vue-php-native.git ./lokasi/folder/proyek/vue-php-native`  
-  Atau [download zip](https://github.com/ianmustafa/vue-php-native/archive/master.zip) dan ekstrak ke folder yang Anda inginkan.
+1. Ada 3 cara mennginstal proyek ini:
+   - Instal melalui Composer: `$ composer create-project ianmustafa/vue-php-native ./lokasi/folder/proyek/vue-php-native`
+   - Clone repo: `$ git clone https://github.com/ianmustafa/vue-php-native.git ./lokasi/folder/proyek/vue-php-native`  
+   - [Download zip](https://github.com/ianmustafa/vue-php-native/archive/master.zip) dan ekstrak ke folder yang Anda inginkan.
 2. Buat database baru dan import `vue-php-native.sql` ke database.
 3. Buka `db.php` dam sesuaikan konfigurasi database dengan server lokal Anda.
 3. Buka `app.js` dan sesuaikan `axios.defaults.baseURL` ke URL proyek di server lokal Anda.
