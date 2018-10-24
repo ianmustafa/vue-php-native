@@ -1,0 +1,16 @@
+{
+    "name": "ian/vue-php-native",
+    "description": "Contoh proyek sederhana dengan Vue.js v2 dan PHP Native.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ian Mustafa",
+            "email": "mail@ianmustafa.com"
+        }
+    ],
+    "require": {
+        "php": "^5.6 || ^7.0",
+        "ext-pdo": "*"
+    }
+}
